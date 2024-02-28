@@ -13,15 +13,27 @@ function loadXMLData(filePath, index) {
     xhr.onload = function() {
         if (xhr.status == 200) {
             var xmlDoc = xhr.responseXML;
-            var elements = xmlDoc.getElementsByTagName('book')[index].childNodes;
-            for (var i = 0; i < elements.length; i++) {
-                var node = elements[i];
-                if (node.nodeType === 1) { // Check if it's an element node
-                    var newElement = document.createElement(node.nodeName);
-                    newElement.textContent = node.textContent;
-                    detailsDiv.appendChild(newElement);
-                }
+            var elements = xmlDoc.getElementsByTagName('book');
+
+            for(var i = 0; i < elements.length; i++){
+                var header, paragraph;
+
+                header = document.createElement('h3');
+                header.appendChild(document.createTextNode(getNodeValue(elements[i], 'header')));
+
+                detailsDiv.appendChild(header);
             }
+
+
+
+        //     for (var i = 0; i < elements.length; i++) {
+        //         var node = elements[i];
+        //         if (node.nodeType === 1) { // Check if it's an element node
+        //             var newElement = document.createElement(node.nodeName);
+        //             newElement.textContent = node.textContent;
+        //             detailsDiv.appendChild(newElement);
+        //         }
+        //     }
         }
     };
 
@@ -48,6 +60,7 @@ taleOfTwoCitiesImage.addEventListener('click', function() {
 // Select the "The Lord of the Rings" image and assign an event listener
 var lordOfTheRingsImage = document.getElementById('lotr-img');
 lordOfTheRingsImage.addEventListener('click', function() {
+    loadXMLData('data/book-data.xml', 2);
     changeImageOpacity();
     lordOfTheRingsImage.style.opacity = '1';
 });
