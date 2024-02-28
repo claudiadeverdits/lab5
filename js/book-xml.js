@@ -32,23 +32,22 @@ function loadXMLData(filePath, index) {
 // Select the "Don Quixote" image and assign an event listener
 var donQuixoteImage = document.getElementById('don-quixote-img');
 donQuixoteImage.addEventListener('click', function() {
-    loadXMLData('book-data.xml', 0);
-    changeOpacityOfImages();
+    loadXMLData('data/book-data.xml', 0);
+    changeImageOpacity();
     donQuixoteImage.style.opacity = '1';
 });
 
 // Select the "A Tale of Two Cities" image and assign an event listener
 var taleOfTwoCitiesImage = document.getElementById('two-cities-img');
 taleOfTwoCitiesImage.addEventListener('click', function() {
-    loadXMLData('book-data.xml', 1);
-    changeOpacityOfImages();
+    loadXMLData('data/book-data.xml', 1);
+    changeImageOpacity();
     taleOfTwoCitiesImage.style.opacity = '1';
 });
 
 // Select the "The Lord of the Rings" image and assign an event listener
 var lordOfTheRingsImage = document.getElementById('lotr-img');
 lordOfTheRingsImage.addEventListener('click', function() {
-    loadXMLData('book-data.xml', 2);
-    changeOpacityOfImages();
+    changeImageOpacity();
     lordOfTheRingsImage.style.opacity = '1';
 });
