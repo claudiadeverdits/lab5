@@ -15,25 +15,19 @@ function loadXMLData(filePath, index) {
             var xmlDoc = xhr.responseXML;
             var elements = xmlDoc.getElementsByTagName('book');
 
-            for(var i = 0; i < elements.length; i++){
-                var header, paragraph;
+            var header, paragraph;
+            header = document.createElement('h3');
+            header.appendChild(document.createTextNode(getNodeValue(elements[index], 'header')));
+            detailsDiv.appendChild(header);
 
-                header = document.createElement('h3');
-                header.appendChild(document.createTextNode(getNodeValue(elements[i], 'header')));
-
-                detailsDiv.appendChild(header);
-            }
-
-
-
-        //     for (var i = 0; i < elements.length; i++) {
-        //         var node = elements[i];
-        //         if (node.nodeType === 1) { // Check if it's an element node
-        //             var newElement = document.createElement(node.nodeName);
-        //             newElement.textContent = node.textContent;
-        //             detailsDiv.appendChild(newElement);
-        //         }
-        //     }
+            // for (var i = 0; i < elements.length; i++) {
+            //     var node = elements[i];
+            //     if (node.nodeType === 1) { // Check if it's an element node
+            //         var newElement = document.createElement(node.nodeName);
+            //         newElement.textContent = node.textContent;
+            //         detailsDiv.appendChild(newElement);
+            //     }
+            // }
         }
     };
 
