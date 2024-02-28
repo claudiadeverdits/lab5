@@ -1,4 +1,4 @@
-function images(){
+function changeImageOpacity(){
     var images = document.getElementsByTagName('img');
     for(var i = 0; i < images.length; i++){
         images[i].style.opacity = 0.5;
