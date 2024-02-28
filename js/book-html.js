@@ -5,7 +5,6 @@ function changeImageOpacity(){
     }
 }
 
-
 function loadHTMLFile(filePath) {
     var xhr = new XMLHttpRequest();
     xhr.onload = function() {
